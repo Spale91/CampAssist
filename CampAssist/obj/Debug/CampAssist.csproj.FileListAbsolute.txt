@@ -1,0 +1,17 @@
+C:\Users\Patrick\source\repos\CampAssist\CampAssist\bin\Debug\CampAssist.exe.config
+C:\Users\Patrick\source\repos\CampAssist\CampAssist\bin\Debug\CampAssist.exe
+C:\Users\Patrick\source\repos\CampAssist\CampAssist\bin\Debug\CampAssist.pdb
+C:\Users\Patrick\source\repos\CampAssist\CampAssist\bin\Debug\EntityFramework.dll
+C:\Users\Patrick\source\repos\CampAssist\CampAssist\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Patrick\source\repos\CampAssist\CampAssist\bin\Debug\EntityFramework.xml
+C:\Users\Patrick\source\repos\CampAssist\CampAssist\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Patrick\source\repos\CampAssist\CampAssist\obj\Debug\CampAssist.csproj.AssemblyReference.cache
+C:\Users\Patrick\source\repos\CampAssist\CampAssist\obj\Debug\CampAssist.frmLogin.resources
+C:\Users\Patrick\source\repos\CampAssist\CampAssist\obj\Debug\CampAssist.frmRegister.resources
+C:\Users\Patrick\source\repos\CampAssist\CampAssist\obj\Debug\CampAssist.FrmStart.resources
+C:\Users\Patrick\source\repos\CampAssist\CampAssist\obj\Debug\CampAssist.Properties.Resources.resources
+C:\Users\Patrick\source\repos\CampAssist\CampAssist\obj\Debug\CampAssist.csproj.GenerateResource.cache
+C:\Users\Patrick\source\repos\CampAssist\CampAssist\obj\Debug\CampAssist.csproj.CoreCompileInputs.cache
+C:\Users\Patrick\source\repos\CampAssist\CampAssist\obj\Debug\CampAssist.csproj.Up2Date
+C:\Users\Patrick\source\repos\CampAssist\CampAssist\obj\Debug\CampAssist.exe
+C:\Users\Patrick\source\repos\CampAssist\CampAssist\obj\Debug\CampAssist.pdb

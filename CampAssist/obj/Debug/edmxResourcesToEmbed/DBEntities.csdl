@@ -1,0 +1,350 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CampAssistDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AccommodationUnit">
+    <Key>
+      <PropertyRef Name="AccommodationUnitID" />
+    </Key>
+    <Property Name="AccommodationUnitID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PriceSeason" Type="Double" />
+    <Property Name="PriceOffSeason" Type="Double" />
+    <Property Name="TypeID" Type="Int32" />
+    <Property Name="Capacity" Type="Int32" />
+    <NavigationProperty Name="Type" Relationship="Self.FK_AccommodationUnit_Type" FromRole="AccommodationUnit" ToRole="Type" />
+    <NavigationProperty Name="AccommodationUnitGuests" Relationship="Self.FK_AccommodationUnitGuest_AccommodationUnit" FromRole="AccommodationUnit" ToRole="AccommodationUnitGuest" />
+    <NavigationProperty Name="Reservations" Relationship="Self.FK_Reservation_AccommodationUnit" FromRole="AccommodationUnit" ToRole="Reservation" />
+    <NavigationProperty Name="ReservationDates" Relationship="Self.FK_ReservationDate_AccommodationUnit" FromRole="AccommodationUnit" ToRole="ReservationDate" />
+  </EntityType>
+  <EntityType Name="AccommodationUnitGuest">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AccommodationUnitID" Type="Int32" />
+    <Property Name="GuestID" Type="Int32" />
+    <NavigationProperty Name="AccommodationUnit" Relationship="Self.FK_AccommodationUnitGuest_AccommodationUnit" FromRole="AccommodationUnitGuest" ToRole="AccommodationUnit" />
+    <NavigationProperty Name="Guest" Relationship="Self.FK_AccommodationUnitGuest_Guest" FromRole="AccommodationUnitGuest" ToRole="Guest" />
+  </EntityType>
+  <EntityType Name="Guest">
+    <Key>
+      <PropertyRef Name="GuestID" />
+    </Key>
+    <Property Name="GuestID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BirthDate" Type="DateTime" Precision="0" />
+    <Property Name="OIB" Type="Int32" />
+    <Property Name="OldGuest" Type="Boolean" />
+    <NavigationProperty Name="AccommodationUnitGuests" Relationship="Self.FK_AccommodationUnitGuest_Guest" FromRole="Guest" ToRole="AccommodationUnitGuest" />
+    <NavigationProperty Name="ReservationDates" Relationship="Self.FK_ReservationDate_Guest" FromRole="Guest" ToRole="ReservationDate" />
+    <NavigationProperty Name="ReservationGuests" Relationship="Self.FK_ReservationGuest_Guest" FromRole="Guest" ToRole="ReservationGuest" />
+  </EntityType>
+  <EntityType Name="Reservation">
+    <Key>
+      <PropertyRef Name="ReservationID" />
+    </Key>
+    <Property Name="ReservationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypeID" Type="Int32" />
+    <Property Name="AccommodationUnitID" Type="Int32" />
+    <Property Name="Price" Type="Double" />
+    <NavigationProperty Name="AccommodationUnit" Relationship="Self.FK_Reservation_AccommodationUnit" FromRole="Reservation" ToRole="AccommodationUnit" />
+    <NavigationProperty Name="Type" Relationship="Self.FK_Reservation_Type" FromRole="Reservation" ToRole="Type" />
+    <NavigationProperty Name="ReservationDates" Relationship="Self.FK_ReservationDate_Reservation" FromRole="Reservation" ToRole="ReservationDate" />
+    <NavigationProperty Name="ReservationGuests" Relationship="Self.FK_ReservationGuest_Reservation" FromRole="Reservation" ToRole="ReservationGuest" />
+  </EntityType>
+  <EntityType Name="ReservationDate">
+    <Key>
+      <PropertyRef Name="ReservationDateID" />
+    </Key>
+    <Property Name="ReservationDateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StartDate" Type="DateTime" Precision="0" />
+    <Property Name="EndDate" Type="DateTime" Precision="0" />
+    <Property Name="AccommodationUnitID" Type="Int32" />
+    <Property Name="GuestID" Type="Int32" />
+    <Property Name="ReservationID" Type="Int32" />
+    <NavigationProperty Name="AccommodationUnit" Relationship="Self.FK_ReservationDate_AccommodationUnit" FromRole="ReservationDate" ToRole="AccommodationUnit" />
+    <NavigationProperty Name="Guest" Relationship="Self.FK_ReservationDate_Guest" FromRole="ReservationDate" ToRole="Guest" />
+    <NavigationProperty Name="Reservation" Relationship="Self.FK_ReservationDate_Reservation" FromRole="ReservationDate" ToRole="Reservation" />
+  </EntityType>
+  <EntityType Name="ReservationGuest">
+    <Key>
+      <PropertyRef Name="ReservationGuestID" />
+    </Key>
+    <Property Name="ReservationGuestID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReservationID" Type="Int32" />
+    <Property Name="GuestID" Type="Int32" />
+    <NavigationProperty Name="Guest" Relationship="Self.FK_ReservationGuest_Guest" FromRole="ReservationGuest" ToRole="Guest" />
+    <NavigationProperty Name="Reservation" Relationship="Self.FK_ReservationGuest_Reservation" FromRole="ReservationGuest" ToRole="Reservation" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Type">
+    <Key>
+      <PropertyRef Name="TypeID" />
+    </Key>
+    <Property Name="TypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PriceSeason" Type="Double" />
+    <Property Name="PriceOffSeason" Type="Double" />
+    <Property Name="Capacity" Type="Int32" />
+    <NavigationProperty Name="AccommodationUnits" Relationship="Self.FK_AccommodationUnit_Type" FromRole="Type" ToRole="AccommodationUnit" />
+    <NavigationProperty Name="Reservations" Relationship="Self.FK_Reservation_Type" FromRole="Type" ToRole="Reservation" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RoleID" Type="Int32" />
+    <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
+  </EntityType>
+  <Association Name="FK_AccommodationUnit_Type">
+    <End Role="Type" Type="Self.Type" Multiplicity="0..1" />
+    <End Role="AccommodationUnit" Type="Self.AccommodationUnit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Type">
+        <PropertyRef Name="TypeID" />
+      </Principal>
+      <Dependent Role="AccommodationUnit">
+        <PropertyRef Name="TypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AccommodationUnitGuest_AccommodationUnit">
+    <End Role="AccommodationUnit" Type="Self.AccommodationUnit" Multiplicity="0..1" />
+    <End Role="AccommodationUnitGuest" Type="Self.AccommodationUnitGuest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AccommodationUnit">
+        <PropertyRef Name="AccommodationUnitID" />
+      </Principal>
+      <Dependent Role="AccommodationUnitGuest">
+        <PropertyRef Name="AccommodationUnitID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reservation_AccommodationUnit">
+    <End Role="AccommodationUnit" Type="Self.AccommodationUnit" Multiplicity="0..1" />
+    <End Role="Reservation" Type="Self.Reservation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AccommodationUnit">
+        <PropertyRef Name="AccommodationUnitID" />
+      </Principal>
+      <Dependent Role="Reservation">
+        <PropertyRef Name="AccommodationUnitID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReservationDate_AccommodationUnit">
+    <End Role="AccommodationUnit" Type="Self.AccommodationUnit" Multiplicity="0..1" />
+    <End Role="ReservationDate" Type="Self.ReservationDate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AccommodationUnit">
+        <PropertyRef Name="AccommodationUnitID" />
+      </Principal>
+      <Dependent Role="ReservationDate">
+        <PropertyRef Name="AccommodationUnitID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AccommodationUnitGuest_Guest">
+    <End Role="Guest" Type="Self.Guest" Multiplicity="0..1" />
+    <End Role="AccommodationUnitGuest" Type="Self.AccommodationUnitGuest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Guest">
+        <PropertyRef Name="GuestID" />
+      </Principal>
+      <Dependent Role="AccommodationUnitGuest">
+        <PropertyRef Name="GuestID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReservationDate_Guest">
+    <End Role="Guest" Type="Self.Guest" Multiplicity="0..1" />
+    <End Role="ReservationDate" Type="Self.ReservationDate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Guest">
+        <PropertyRef Name="GuestID" />
+      </Principal>
+      <Dependent Role="ReservationDate">
+        <PropertyRef Name="GuestID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReservationGuest_Guest">
+    <End Role="Guest" Type="Self.Guest" Multiplicity="0..1" />
+    <End Role="ReservationGuest" Type="Self.ReservationGuest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Guest">
+        <PropertyRef Name="GuestID" />
+      </Principal>
+      <Dependent Role="ReservationGuest">
+        <PropertyRef Name="GuestID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reservation_Type">
+    <End Role="Type" Type="Self.Type" Multiplicity="0..1" />
+    <End Role="Reservation" Type="Self.Reservation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Type">
+        <PropertyRef Name="TypeID" />
+      </Principal>
+      <Dependent Role="Reservation">
+        <PropertyRef Name="TypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReservationDate_Reservation">
+    <End Role="Reservation" Type="Self.Reservation" Multiplicity="0..1" />
+    <End Role="ReservationDate" Type="Self.ReservationDate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Reservation">
+        <PropertyRef Name="ReservationID" />
+      </Principal>
+      <Dependent Role="ReservationDate">
+        <PropertyRef Name="ReservationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReservationGuest_Reservation">
+    <End Role="Reservation" Type="Self.Reservation" Multiplicity="0..1" />
+    <End Role="ReservationGuest" Type="Self.ReservationGuest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Reservation">
+        <PropertyRef Name="ReservationID" />
+      </Principal>
+      <Dependent Role="ReservationGuest">
+        <PropertyRef Name="ReservationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CampAssistDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AccommodationUnits" EntityType="Self.AccommodationUnit" />
+    <EntitySet Name="AccommodationUnitGuests" EntityType="Self.AccommodationUnitGuest" />
+    <EntitySet Name="Guests" EntityType="Self.Guest" />
+    <EntitySet Name="Reservations" EntityType="Self.Reservation" />
+    <EntitySet Name="ReservationDates" EntityType="Self.ReservationDate" />
+    <EntitySet Name="ReservationGuests" EntityType="Self.ReservationGuest" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Types" EntityType="Self.Type" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK_AccommodationUnit_Type" Association="Self.FK_AccommodationUnit_Type">
+      <End Role="Type" EntitySet="Types" />
+      <End Role="AccommodationUnit" EntitySet="AccommodationUnits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AccommodationUnitGuest_AccommodationUnit" Association="Self.FK_AccommodationUnitGuest_AccommodationUnit">
+      <End Role="AccommodationUnit" EntitySet="AccommodationUnits" />
+      <End Role="AccommodationUnitGuest" EntitySet="AccommodationUnitGuests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reservation_AccommodationUnit" Association="Self.FK_Reservation_AccommodationUnit">
+      <End Role="AccommodationUnit" EntitySet="AccommodationUnits" />
+      <End Role="Reservation" EntitySet="Reservations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReservationDate_AccommodationUnit" Association="Self.FK_ReservationDate_AccommodationUnit">
+      <End Role="AccommodationUnit" EntitySet="AccommodationUnits" />
+      <End Role="ReservationDate" EntitySet="ReservationDates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AccommodationUnitGuest_Guest" Association="Self.FK_AccommodationUnitGuest_Guest">
+      <End Role="Guest" EntitySet="Guests" />
+      <End Role="AccommodationUnitGuest" EntitySet="AccommodationUnitGuests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReservationDate_Guest" Association="Self.FK_ReservationDate_Guest">
+      <End Role="Guest" EntitySet="Guests" />
+      <End Role="ReservationDate" EntitySet="ReservationDates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReservationGuest_Guest" Association="Self.FK_ReservationGuest_Guest">
+      <End Role="Guest" EntitySet="Guests" />
+      <End Role="ReservationGuest" EntitySet="ReservationGuests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reservation_Type" Association="Self.FK_Reservation_Type">
+      <End Role="Type" EntitySet="Types" />
+      <End Role="Reservation" EntitySet="Reservations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReservationDate_Reservation" Association="Self.FK_ReservationDate_Reservation">
+      <End Role="Reservation" EntitySet="Reservations" />
+      <End Role="ReservationDate" EntitySet="ReservationDates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReservationGuest_Reservation" Association="Self.FK_ReservationGuest_Reservation">
+      <End Role="Reservation" EntitySet="Reservations" />
+      <End Role="ReservationGuest" EntitySet="ReservationGuests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(CampAssistDBModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(CampAssistDBModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>
