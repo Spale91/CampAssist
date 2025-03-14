@@ -28,12 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.btnTypeList = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // btnTypeList
+            // 
+            this.btnTypeList.Location = new System.Drawing.Point(52, 27);
+            this.btnTypeList.Name = "btnTypeList";
+            this.btnTypeList.Size = new System.Drawing.Size(145, 51);
+            this.btnTypeList.TabIndex = 0;
+            this.btnTypeList.Text = "Tipovi smještajnih jedinica";
+            this.btnTypeList.UseVisualStyleBackColor = true;
+            this.btnTypeList.Click += new System.EventHandler(this.btnTypeList_Click);
+            // 
+            // frmAdmin
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnTypeList);
+            this.Name = "frmAdmin";
             this.Text = "frmAdmin";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btnTypeList;
     }
 }

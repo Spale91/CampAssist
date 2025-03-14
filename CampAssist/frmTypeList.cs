@@ -10,18 +10,17 @@ using System.Windows.Forms;
 
 namespace CampAssist
 {
-    public partial class frmAdmin: Form
+    public partial class frmTypeList: Form
     {
-        public frmAdmin()
+        public frmTypeList()
         {
             InitializeComponent();
         }
 
-        private void btnTypeList_Click(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
-            frmTypeList frmTypeList = new frmTypeList();
-            frmTypeList.ShowDialog();
-            Close();
+            frmAddType frmAddType = new frmAddType();
+            frmAddType.ShowDialog();
         }
     }
 }
