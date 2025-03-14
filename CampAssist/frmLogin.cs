@@ -16,5 +16,21 @@ namespace CampAssist
         {
             InitializeComponent();
         }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            string username = txtUsername.Text;
+            string password = txtPassword.Text;
+
+            LoginController loginController = new LoginController();
+            if(loginController.CheckCredentials(username, password))
+            {
+                MessageBox.Show("Uspješna prijava");
+            }
+            else
+            {
+                MessageBox.Show("Neispravno korisničko ime ili lozinka");
+            }
+        }
     }
 }
