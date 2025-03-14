@@ -26,6 +26,17 @@ namespace CampAssist
             if(loginController.CheckCredentials(username, password))
             {
                 MessageBox.Show("Uspješna prijava");
+                if(loginController.checkAdmin(username))
+                {
+                    Hide();
+                    frmAdmin frmAdmin = new frmAdmin();
+                    frmAdmin.ShowDialog();
+                }
+                else
+                {
+                    /*frmEmployee frmEmployee = new frmEmployee();
+                    frmEmployee.ShowDialog();*/
+                }
             }
             else
             {

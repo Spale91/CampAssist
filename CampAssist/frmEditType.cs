@@ -10,14 +10,16 @@ using System.Windows.Forms;
 
 namespace CampAssist
 {
-    public partial class frmAddType: Form
+    public partial class frmEditType: Form
     {
-        public frmAddType()
+        Type selectedType;
+        public frmEditType(Type selectedType)
         {
             InitializeComponent();
+            this.selectedType = selectedType;
         }
 
-        private void btnAddType_Click(object sender, EventArgs e)
+        private void btnEditType_Click(object sender, EventArgs e)
         {
             string typeName = txtTypeName.Text;
             float priceSeason = (float)numPriceSeason.Value;
@@ -25,8 +27,16 @@ namespace CampAssist
             int capacity = (int)numCapacity.Value;
 
             TypeController typeController = new TypeController();
-            typeController.AddType(typeName, priceSeason, priceOffSeason, capacity);
+            typeController.EditType(selectedType, typeName, priceSeason, priceOffSeason, capacity);
             Close();
+        }
+
+        private void frmEditType_Load(object sender, EventArgs e)
+        {
+            txtTypeName.Text = selectedType.TypeName.ToString();
+            numPriceSeason.Value = (decimal)selectedType.PriceSeason;
+            numPriceOffSeason.Value = (decimal)selectedType.PriceOffSeason;
+            numCapacity.Value = (int)selectedType.Capacity;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

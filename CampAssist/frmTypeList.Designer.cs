@@ -64,6 +64,7 @@
             this.btnEdit.TabIndex = 2;
             this.btnEdit.Text = "Uredi";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDelete
             // 
@@ -71,8 +72,9 @@
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(145, 39);
             this.btnDelete.TabIndex = 3;
-            this.btnDelete.Text = "Delete";
+            this.btnDelete.Text = "Obriši";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnReset
             // 
@@ -82,6 +84,7 @@
             this.btnReset.TabIndex = 4;
             this.btnReset.Text = "Resetiraj";
             this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnSearch
             // 
@@ -91,6 +94,7 @@
             this.btnSearch.TabIndex = 5;
             this.btnSearch.Text = "Traži";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // txtSearch
             // 
@@ -113,6 +117,7 @@
             this.Controls.Add(this.dgvTypeList);
             this.Name = "frmTypeList";
             this.Text = "TypeList";
+            this.Load += new System.EventHandler(this.frmTypeList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTypeList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

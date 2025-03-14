@@ -19,9 +19,9 @@ namespace CampAssist
 
         private void btnTypeList_Click(object sender, EventArgs e)
         {
+            Hide();
             frmTypeList frmTypeList = new frmTypeList();
             frmTypeList.ShowDialog();
-            Close();
         }
     }
 }

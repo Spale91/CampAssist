@@ -39,9 +39,9 @@ namespace CampAssist
                 MessageBox.Show("Uspješna registracija");
                 if(role.RoleName == "Admin")
                 {
+                    Hide();
                     frmAdmin frmAdmin = new frmAdmin();
                     frmAdmin.ShowDialog();
-                    Close();
                 }
                 if(role.RoleName == "Zaposlenik")
                 {

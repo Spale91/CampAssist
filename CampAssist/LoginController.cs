@@ -25,5 +25,22 @@ namespace CampAssist
                 }
             }
         }
+
+        public bool checkAdmin(string username)
+        {
+            User user = new User();
+            using (CampAssistDBEntities db = new CampAssistDBEntities())
+            {
+                user = db.Users.FirstOrDefault(u => u.Username == username);
+                if(user.Role.RoleName == "Admin")
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
     }
 }

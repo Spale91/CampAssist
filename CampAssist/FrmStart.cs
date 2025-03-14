@@ -21,6 +21,7 @@ namespace CampAssist
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            Hide();
             frmLogin frmLogin = new frmLogin();
             frmLogin.ShowDialog();
             Close();
@@ -28,9 +29,9 @@ namespace CampAssist
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
+            Hide();
             frmRegister frmRegister = new frmRegister();
             frmRegister.ShowDialog();
-            Close();
         }
     }
 }

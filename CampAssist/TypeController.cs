@@ -3,11 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CampAssist
 {
     public class TypeController
     {
+        public List<Type> GetTypes()
+        {
+            using(CampAssistDBEntities db = new CampAssistDBEntities())
+            {
+                List<Type> types = db.Types.ToList();
+                return types;
+            }
+        }
+
         public bool AddType(string typeName, float priceSeason, float priceOffSeason, int capacity)
         {
             Type type = new Type
@@ -30,6 +40,38 @@ namespace CampAssist
                     db.SaveChanges();
                     return true;
                 }
+            }
+        }
+
+        public void EditType(Type selectedType, string typeName, float priceSeason, float priceOffSeason, int capacity)
+        {
+            using(CampAssistDBEntities db = new CampAssistDBEntities())
+            {
+                db.Types.Attach(selectedType);
+                selectedType.TypeName = typeName;
+                selectedType.PriceSeason = priceSeason;
+                selectedType.PriceOffSeason = priceOffSeason;
+                selectedType.Capacity = capacity;
+                db.SaveChanges();
+            }
+        }
+
+        public void DeleteType(Type selectedType)
+        {
+            using(CampAssistDBEntities db = new CampAssistDBEntities())
+            {
+                db.Types.Attach(selectedType);
+                db.Types.Remove(selectedType);
+                db.SaveChanges();
+            }
+        }
+
+        public List<Type> SearchType(string search)
+        {
+            using(CampAssistDBEntities db = new CampAssistDBEntities())
+            {
+                List<Type> searchResult = db.Types.Where(t  => t.TypeName.Contains(search)).ToList<Type>();
+                return searchResult;
             }
         }
     }

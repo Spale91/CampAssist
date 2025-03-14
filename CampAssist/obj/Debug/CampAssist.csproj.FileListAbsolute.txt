@@ -15,3 +15,7 @@ C:\Users\Patrick\source\repos\CampAssist\CampAssist\obj\Debug\CampAssist.csproj.
 C:\Users\Patrick\source\repos\CampAssist\CampAssist\obj\Debug\CampAssist.csproj.Up2Date
 C:\Users\Patrick\source\repos\CampAssist\CampAssist\obj\Debug\CampAssist.exe
 C:\Users\Patrick\source\repos\CampAssist\CampAssist\obj\Debug\CampAssist.pdb
+C:\Users\Patrick\source\repos\CampAssist\CampAssist\obj\Debug\CampAssist.frmAddType.resources
+C:\Users\Patrick\source\repos\CampAssist\CampAssist\obj\Debug\CampAssist.frmAdmin.resources
+C:\Users\Patrick\source\repos\CampAssist\CampAssist\obj\Debug\CampAssist.frmEditType.resources
+C:\Users\Patrick\source\repos\CampAssist\CampAssist\obj\Debug\CampAssist.frmTypeList.resources
