@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35828.75 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CampAssist", "CampAssist\CampAssist.csproj", "{9C66E1EB-2135-4DB3-8D05-2D50E5BDA599}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9C66E1EB-2135-4DB3-8D05-2D50E5BDA599}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C66E1EB-2135-4DB3-8D05-2D50E5BDA599}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C66E1EB-2135-4DB3-8D05-2D50E5BDA599}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C66E1EB-2135-4DB3-8D05-2D50E5BDA599}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8CE7A31D-DED3-4D86-A302-762003C1A536}
+	EndGlobalSection
+EndGlobal

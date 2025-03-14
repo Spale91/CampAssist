@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="47ba40d3c0554eb09e233061b8125253" Name="Diagram1">
+        <EntityTypeShape EntityType="CampAssistDBModel.AccommodationUnit" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CampAssistDBModel.AccommodationUnitGuest" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CampAssistDBModel.Guest" Width="1.5" PointX="5.25" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CampAssistDBModel.Reservation" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CampAssistDBModel.ReservationDate" Width="1.5" PointX="7.5" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="CampAssistDBModel.ReservationGuest" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CampAssistDBModel.Role" Width="1.5" PointX="7.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CampAssistDBModel.sysdiagram" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CampAssistDBModel.Type" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CampAssistDBModel.User" Width="1.5" PointX="10" PointY="8.375" IsExpanded="true" />
+        <AssociationConnector Association="CampAssistDBModel.FK_AccommodationUnit_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="CampAssistDBModel.FK_AccommodationUnitGuest_AccommodationUnit" ManuallyRouted="false" />
+        <AssociationConnector Association="CampAssistDBModel.FK_Reservation_AccommodationUnit" ManuallyRouted="false" />
+        <AssociationConnector Association="CampAssistDBModel.FK_ReservationDate_AccommodationUnit" ManuallyRouted="false" />
+        <AssociationConnector Association="CampAssistDBModel.FK_AccommodationUnitGuest_Guest" ManuallyRouted="false" />
+        <AssociationConnector Association="CampAssistDBModel.FK_ReservationDate_Guest" ManuallyRouted="false" />
+        <AssociationConnector Association="CampAssistDBModel.FK_ReservationGuest_Guest" ManuallyRouted="false" />
+        <AssociationConnector Association="CampAssistDBModel.FK_Reservation_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="CampAssistDBModel.FK_ReservationDate_Reservation" ManuallyRouted="false" />
+        <AssociationConnector Association="CampAssistDBModel.FK_ReservationGuest_Reservation" ManuallyRouted="false" />
+        <AssociationConnector Association="CampAssistDBModel.FK_User_Role" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
