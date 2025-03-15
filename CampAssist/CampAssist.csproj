@@ -65,6 +65,12 @@
     <Compile Include="AccommodationUnitGuest.cs">
       <DependentUpon>DBEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="AddGuest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddGuest.Designer.cs">
+      <DependentUpon>AddGuest.cs</DependentUpon>
+    </Compile>
     <Compile Include="DBEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -122,6 +128,12 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmNewReservation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNewReservation.Designer.cs">
+      <DependentUpon>frmNewReservation.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmRegister.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +149,7 @@
     <Compile Include="Guest.cs">
       <DependentUpon>DBEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="GuestController.cs" />
     <Compile Include="LoginController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -176,6 +189,9 @@
     <Compile Include="User.cs">
       <DependentUpon>DBEntities.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddGuest.resx">
+      <DependentUpon>AddGuest.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmEditAccommodationUnit.resx">
       <DependentUpon>frmEditAccommodationUnit.cs</DependentUpon>
     </EmbeddedResource>
@@ -196,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNewReservation.resx">
+      <DependentUpon>frmNewReservation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegister.resx">
       <DependentUpon>frmRegister.cs</DependentUpon>

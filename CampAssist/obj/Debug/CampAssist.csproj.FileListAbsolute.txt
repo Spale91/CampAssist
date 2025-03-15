@@ -22,3 +22,5 @@ C:\Users\Patrick\source\repos\CampAssist\CampAssist\obj\Debug\CampAssist.frmType
 C:\Users\Patrick\source\repos\CampAssist\CampAssist\obj\Debug\CampAssist.frmAccommodationUnitList.resources
 C:\Users\Patrick\source\repos\CampAssist\CampAssist\obj\Debug\CampAssist.frmAddAccommodationUnit.resources
 C:\Users\Patrick\source\repos\CampAssist\CampAssist\obj\Debug\CampAssist.frmEditAccommodationUnit.resources
+C:\Users\Patrick\source\repos\CampAssist\CampAssist\obj\Debug\CampAssist.AddGuest.resources
+C:\Users\Patrick\source\repos\CampAssist\CampAssist\obj\Debug\CampAssist.frmNewReservation.resources

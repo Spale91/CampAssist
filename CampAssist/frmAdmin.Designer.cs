@@ -30,6 +30,7 @@
         {
             this.btnTypeList = new System.Windows.Forms.Button();
             this.btnAccommodationUnits = new System.Windows.Forms.Button();
+            this.btnAddReservation = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnTypeList
@@ -52,11 +53,22 @@
             this.btnAccommodationUnits.UseVisualStyleBackColor = true;
             this.btnAccommodationUnits.Click += new System.EventHandler(this.btnAccommodationUnits_Click);
             // 
+            // btnAddReservation
+            // 
+            this.btnAddReservation.Location = new System.Drawing.Point(552, 27);
+            this.btnAddReservation.Name = "btnAddReservation";
+            this.btnAddReservation.Size = new System.Drawing.Size(145, 51);
+            this.btnAddReservation.TabIndex = 2;
+            this.btnAddReservation.Text = "Nova rezervacija";
+            this.btnAddReservation.UseVisualStyleBackColor = true;
+            this.btnAddReservation.Click += new System.EventHandler(this.btnAddReservation_Click);
+            // 
             // frmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnAddReservation);
             this.Controls.Add(this.btnAccommodationUnits);
             this.Controls.Add(this.btnTypeList);
             this.Name = "frmAdmin";
@@ -69,5 +81,6 @@
 
         private System.Windows.Forms.Button btnTypeList;
         private System.Windows.Forms.Button btnAccommodationUnits;
+        private System.Windows.Forms.Button btnAddReservation;
     }
 }

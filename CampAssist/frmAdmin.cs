@@ -26,8 +26,16 @@ namespace CampAssist
 
         private void btnAccommodationUnits_Click(object sender, EventArgs e)
         {
+            Hide();
             frmAccommodationUnitList frmAccommodationUnitList = new frmAccommodationUnitList();
             frmAccommodationUnitList.ShowDialog();
+        }
+
+        private void btnAddReservation_Click(object sender, EventArgs e)
+        {
+            Hide();
+            frmNewReservation frmNewReservation = new frmNewReservation();
+            frmNewReservation.ShowDialog();
         }
     }
 }
