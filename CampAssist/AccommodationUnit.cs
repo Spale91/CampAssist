@@ -29,12 +29,12 @@ namespace CampAssist
         public Nullable<int> TypeID { get; set; }
         public Nullable<int> Capacity { get; set; }
     
-        public virtual Type Type { get; set; }
+        public Type Type { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AccommodationUnitGuest> AccommodationUnitGuests { get; set; }
+        public ICollection<AccommodationUnitGuest> AccommodationUnitGuests { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Reservation> Reservations { get; set; }
+        public ICollection<Reservation> Reservations { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ReservationDate> ReservationDates { get; set; }
+        public ICollection<ReservationDate> ReservationDates { get; set; }
     }
 }

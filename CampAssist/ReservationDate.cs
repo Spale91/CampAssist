@@ -23,6 +23,5 @@ namespace CampAssist
     
         public virtual AccommodationUnit AccommodationUnit { get; set; }
         public virtual Guest Guest { get; set; }
-        public virtual Reservation Reservation { get; set; }
     }
 }

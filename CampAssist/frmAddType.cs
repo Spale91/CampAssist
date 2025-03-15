@@ -25,7 +25,14 @@ namespace CampAssist
             int capacity = (int)numCapacity.Value;
 
             TypeController typeController = new TypeController();
-            typeController.AddType(typeName, priceSeason, priceOffSeason, capacity);
+            if(typeController.AddType(typeName, priceSeason, priceOffSeason, capacity))
+            {
+                MessageBox.Show("Novi tip smještaja uspješno dodan");
+            }
+            else
+            {
+                MessageBox.Show("Tip smještaja već postoji");
+            }
             Close();
         }
 

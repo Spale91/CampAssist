@@ -19,3 +19,6 @@ C:\Users\Patrick\source\repos\CampAssist\CampAssist\obj\Debug\CampAssist.frmAddT
 C:\Users\Patrick\source\repos\CampAssist\CampAssist\obj\Debug\CampAssist.frmAdmin.resources
 C:\Users\Patrick\source\repos\CampAssist\CampAssist\obj\Debug\CampAssist.frmEditType.resources
 C:\Users\Patrick\source\repos\CampAssist\CampAssist\obj\Debug\CampAssist.frmTypeList.resources
+C:\Users\Patrick\source\repos\CampAssist\CampAssist\obj\Debug\CampAssist.frmAccommodationUnitList.resources
+C:\Users\Patrick\source\repos\CampAssist\CampAssist\obj\Debug\CampAssist.frmAddAccommodationUnit.resources
+C:\Users\Patrick\source\repos\CampAssist\CampAssist\obj\Debug\CampAssist.frmEditAccommodationUnit.resources

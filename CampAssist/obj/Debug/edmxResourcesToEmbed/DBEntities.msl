@@ -41,6 +41,8 @@
           <ScalarProperty Name="TypeID" ColumnName="TypeID" />
           <ScalarProperty Name="AccommodationUnitID" ColumnName="AccommodationUnitID" />
           <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

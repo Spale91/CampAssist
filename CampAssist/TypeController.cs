@@ -53,6 +53,19 @@ namespace CampAssist
                 selectedType.PriceOffSeason = priceOffSeason;
                 selectedType.Capacity = capacity;
                 db.SaveChanges();
+
+
+                List<AccommodationUnit> accommodationUnits = db.AccommodationUnits.Where(au => au.TypeID == selectedType.TypeID).ToList<AccommodationUnit>();
+
+                foreach (AccommodationUnit accommodationUnit in accommodationUnits)
+                {
+                    db.AccommodationUnits.Attach(accommodationUnit);
+                    accommodationUnit.PriceSeason = priceSeason;
+                    accommodationUnit.PriceOffSeason = priceOffSeason;
+                    accommodationUnit.Capacity = capacity;
+                    accommodationUnit.TypeID = selectedType.TypeID;
+                }
+                db.SaveChanges();
             }
         }
 
@@ -60,6 +73,15 @@ namespace CampAssist
         {
             using(CampAssistDBEntities db = new CampAssistDBEntities())
             {
+                List<AccommodationUnit> accommodationUnits = db.AccommodationUnits.Where(au => au.TypeID == selectedType.TypeID).ToList<AccommodationUnit>();
+                foreach (AccommodationUnit accommodationUnit in accommodationUnits)
+                {
+                    db.AccommodationUnits.Attach(accommodationUnit);
+                    db.AccommodationUnits.Remove(accommodationUnit);
+                    db.SaveChanges();
+                }
+
+
                 db.Types.Attach(selectedType);
                 db.Types.Remove(selectedType);
                 db.SaveChanges();

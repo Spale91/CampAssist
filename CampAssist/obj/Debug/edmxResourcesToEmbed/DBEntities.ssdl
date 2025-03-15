@@ -38,6 +38,8 @@
     <Property Name="TypeID" Type="int" />
     <Property Name="AccommodationUnitID" Type="int" />
     <Property Name="Price" Type="float" />
+    <Property Name="StartDate" Type="date" />
+    <Property Name="EndDate" Type="date" />
   </EntityType>
   <EntityType Name="ReservationDate">
     <Key>
@@ -180,18 +182,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_ReservationDate_Reservation">
-    <End Role="Reservation" Type="Self.Reservation" Multiplicity="0..1" />
-    <End Role="ReservationDate" Type="Self.ReservationDate" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Reservation">
-        <PropertyRef Name="ReservationID" />
-      </Principal>
-      <Dependent Role="ReservationDate">
-        <PropertyRef Name="ReservationID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_ReservationGuest_Guest">
     <End Role="Guest" Type="Self.Guest" Multiplicity="0..1" />
     <End Role="ReservationGuest" Type="Self.ReservationGuest" Multiplicity="*" />
@@ -296,10 +286,6 @@
     </AssociationSet>
     <AssociationSet Name="FK_ReservationDate_Guest" Association="Self.FK_ReservationDate_Guest">
       <End Role="Guest" EntitySet="Guest" />
-      <End Role="ReservationDate" EntitySet="ReservationDate" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ReservationDate_Reservation" Association="Self.FK_ReservationDate_Reservation">
-      <End Role="Reservation" EntitySet="Reservation" />
       <End Role="ReservationDate" EntitySet="ReservationDate" />
     </AssociationSet>
     <AssociationSet Name="FK_ReservationGuest_Guest" Association="Self.FK_ReservationGuest_Guest">

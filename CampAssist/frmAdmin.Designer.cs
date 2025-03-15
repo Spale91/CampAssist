@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.btnTypeList = new System.Windows.Forms.Button();
+            this.btnAccommodationUnits = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnTypeList
@@ -41,11 +42,22 @@
             this.btnTypeList.UseVisualStyleBackColor = true;
             this.btnTypeList.Click += new System.EventHandler(this.btnTypeList_Click);
             // 
+            // btnAccommodationUnits
+            // 
+            this.btnAccommodationUnits.Location = new System.Drawing.Point(286, 27);
+            this.btnAccommodationUnits.Name = "btnAccommodationUnits";
+            this.btnAccommodationUnits.Size = new System.Drawing.Size(145, 51);
+            this.btnAccommodationUnits.TabIndex = 1;
+            this.btnAccommodationUnits.Text = "Smještajne jedinice";
+            this.btnAccommodationUnits.UseVisualStyleBackColor = true;
+            this.btnAccommodationUnits.Click += new System.EventHandler(this.btnAccommodationUnits_Click);
+            // 
             // frmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnAccommodationUnits);
             this.Controls.Add(this.btnTypeList);
             this.Name = "frmAdmin";
             this.Text = "frmAdmin";
@@ -56,5 +68,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnTypeList;
+        private System.Windows.Forms.Button btnAccommodationUnits;
     }
 }

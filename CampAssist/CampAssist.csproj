@@ -61,6 +61,7 @@
     <Compile Include="AccommodationUnit.cs">
       <DependentUpon>DBEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="AccommodationUnitController.cs" />
     <Compile Include="AccommodationUnitGuest.cs">
       <DependentUpon>DBEntities.tt</DependentUpon>
     </Compile>
@@ -78,6 +79,24 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DBEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditAccommodationUnit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditAccommodationUnit.Designer.cs">
+      <DependentUpon>frmEditAccommodationUnit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAccommodationUnitList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAccommodationUnitList.Designer.cs">
+      <DependentUpon>frmAccommodationUnitList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddAccommodationUnit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddAccommodationUnit.Designer.cs">
+      <DependentUpon>frmAddAccommodationUnit.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAddType.cs">
       <SubType>Form</SubType>
@@ -134,29 +153,38 @@
       <DependentUpon>DBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="RoleController.cs" />
-    <Compile Include="sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>DBEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sp_helpdiagrams_Result.cs">
-      <DependentUpon>DBEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="RegisterController.cs" />
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>DBEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Type.cs">
-      <DependentUpon>DBEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="frmTypeList.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmTypeList.Designer.cs">
       <DependentUpon>frmTypeList.cs</DependentUpon>
     </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>DBEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>DBEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>DBEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Type.cs">
+      <DependentUpon>DBEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="TypeController.cs" />
     <Compile Include="User.cs">
       <DependentUpon>DBEntities.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmEditAccommodationUnit.resx">
+      <DependentUpon>frmEditAccommodationUnit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAccommodationUnitList.resx">
+      <DependentUpon>frmAccommodationUnitList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddAccommodationUnit.resx">
+      <DependentUpon>frmAddAccommodationUnit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAddType.resx">
       <DependentUpon>frmAddType.cs</DependentUpon>
     </EmbeddedResource>
@@ -209,6 +237,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="DBEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DBEntities.edmx</DependentUpon>
@@ -219,9 +250,6 @@
       <DependentUpon>DBEntities.edmx</DependentUpon>
       <LastGenOutput>DBEntities.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -29,7 +29,6 @@ namespace CampAssist
             frmAddType frmAddType = new frmAddType();
             frmAddType.ShowDialog();
             ShowTypes();
-            MessageBox.Show("Smještaj uspješno dodan");
         }
 
         private void btnEdit_Click(object sender, EventArgs e)

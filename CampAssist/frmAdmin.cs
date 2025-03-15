@@ -23,5 +23,11 @@ namespace CampAssist
             frmTypeList frmTypeList = new frmTypeList();
             frmTypeList.ShowDialog();
         }
+
+        private void btnAccommodationUnits_Click(object sender, EventArgs e)
+        {
+            frmAccommodationUnitList frmAccommodationUnitList = new frmAccommodationUnitList();
+            frmAccommodationUnitList.ShowDialog();
+        }
     }
 }

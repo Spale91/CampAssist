@@ -17,7 +17,6 @@ namespace CampAssist
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Reservation()
         {
-            this.ReservationDates = new HashSet<ReservationDate>();
             this.ReservationGuests = new HashSet<ReservationGuest>();
         }
     
@@ -25,11 +24,11 @@ namespace CampAssist
         public Nullable<int> TypeID { get; set; }
         public Nullable<int> AccommodationUnitID { get; set; }
         public Nullable<double> Price { get; set; }
+        public Nullable<System.DateTime> StartDate { get; set; }
+        public Nullable<System.DateTime> EndDate { get; set; }
     
         public virtual AccommodationUnit AccommodationUnit { get; set; }
         public virtual Type Type { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ReservationDate> ReservationDates { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ReservationGuest> ReservationGuests { get; set; }
     }
