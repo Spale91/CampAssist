@@ -162,6 +162,7 @@
     <Compile Include="Reservation.cs">
       <DependentUpon>DBEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="ReservationController.cs" />
     <Compile Include="ReservationDate.cs">
       <DependentUpon>DBEntities.tt</DependentUpon>
     </Compile>

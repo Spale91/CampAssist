@@ -42,7 +42,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnRefresh = new System.Windows.Forms.Button();
+            this.numTotalPrice = new System.Windows.Forms.NumericUpDown();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReservationGuestList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numTotalPrice)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvReservationGuestList
@@ -76,6 +79,7 @@
             this.dtpStartDate.Name = "dtpStartDate";
             this.dtpStartDate.Size = new System.Drawing.Size(200, 20);
             this.dtpStartDate.TabIndex = 3;
+            this.dtpStartDate.ValueChanged += new System.EventHandler(this.dtpStartDate_ValueChanged);
             // 
             // dtpEndDate
             // 
@@ -83,21 +87,23 @@
             this.dtpEndDate.Name = "dtpEndDate";
             this.dtpEndDate.Size = new System.Drawing.Size(200, 20);
             this.dtpEndDate.TabIndex = 4;
+            this.dtpEndDate.ValueChanged += new System.EventHandler(this.dtpEndDate_ValueChanged);
             // 
             // btnAddReservation
             // 
             this.btnAddReservation.Location = new System.Drawing.Point(40, 390);
             this.btnAddReservation.Name = "btnAddReservation";
-            this.btnAddReservation.Size = new System.Drawing.Size(150, 36);
+            this.btnAddReservation.Size = new System.Drawing.Size(104, 36);
             this.btnAddReservation.TabIndex = 5;
             this.btnAddReservation.Text = "Dodaj rezervaciju";
             this.btnAddReservation.UseVisualStyleBackColor = true;
+            this.btnAddReservation.Click += new System.EventHandler(this.btnAddReservation_Click);
             // 
             // btnPickOldGuest
             // 
-            this.btnPickOldGuest.Location = new System.Drawing.Point(242, 390);
+            this.btnPickOldGuest.Location = new System.Drawing.Point(150, 390);
             this.btnPickOldGuest.Name = "btnPickOldGuest";
-            this.btnPickOldGuest.Size = new System.Drawing.Size(150, 36);
+            this.btnPickOldGuest.Size = new System.Drawing.Size(113, 36);
             this.btnPickOldGuest.TabIndex = 6;
             this.btnPickOldGuest.Text = "Odaberi starog gosta";
             this.btnPickOldGuest.UseVisualStyleBackColor = true;
@@ -105,9 +111,9 @@
             // 
             // btnAddGuest
             // 
-            this.btnAddGuest.Location = new System.Drawing.Point(436, 390);
+            this.btnAddGuest.Location = new System.Drawing.Point(269, 390);
             this.btnAddGuest.Name = "btnAddGuest";
-            this.btnAddGuest.Size = new System.Drawing.Size(150, 36);
+            this.btnAddGuest.Size = new System.Drawing.Size(104, 36);
             this.btnAddGuest.TabIndex = 7;
             this.btnAddGuest.Text = "Dodaj gosta";
             this.btnAddGuest.UseVisualStyleBackColor = true;
@@ -115,9 +121,9 @@
             // 
             // btnDeleteGuest
             // 
-            this.btnDeleteGuest.Location = new System.Drawing.Point(620, 390);
+            this.btnDeleteGuest.Location = new System.Drawing.Point(379, 390);
             this.btnDeleteGuest.Name = "btnDeleteGuest";
-            this.btnDeleteGuest.Size = new System.Drawing.Size(150, 36);
+            this.btnDeleteGuest.Size = new System.Drawing.Size(104, 36);
             this.btnDeleteGuest.TabIndex = 8;
             this.btnDeleteGuest.Text = "Obriši gosta";
             this.btnDeleteGuest.UseVisualStyleBackColor = true;
@@ -169,11 +175,34 @@
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
+            // numTotalPrice
+            // 
+            this.numTotalPrice.Location = new System.Drawing.Point(650, 400);
+            this.numTotalPrice.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.numTotalPrice.Name = "numTotalPrice";
+            this.numTotalPrice.Size = new System.Drawing.Size(120, 20);
+            this.numTotalPrice.TabIndex = 14;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(568, 402);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(76, 13);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Ukupna cijena";
+            // 
             // frmNewReservation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.numTotalPrice);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -192,6 +221,7 @@
             this.Text = "frmNewReservation";
             this.Load += new System.EventHandler(this.frmNewReservation_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReservationGuestList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numTotalPrice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -213,5 +243,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.NumericUpDown numTotalPrice;
+        private System.Windows.Forms.Label label5;
     }
 }

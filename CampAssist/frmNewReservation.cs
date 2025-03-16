@@ -23,6 +23,13 @@ namespace CampAssist
             GuestController guestController = new GuestController();
             tempReservationGuests = guestController.GetGuestList();
             dgvReservationGuestList.DataSource = tempReservationGuests;
+
+            Type type = cboTypes.SelectedItem as Type;
+            DateTime startDate = dtpStartDate.Value;
+            DateTime endDate = dtpEndDate.Value;
+            ReservationController reservationController = new ReservationController();
+            float totalPrice = reservationController.CalculatePrice(type, startDate, endDate, tempReservationGuests);
+            numTotalPrice.Value = (decimal)totalPrice;
         }
 
         private void frmNewReservation_Load(object sender, EventArgs e)
@@ -31,6 +38,7 @@ namespace CampAssist
             List<Type> types = typeController.GetTypes();
             cboTypes.DataSource = types;
             cboTypes.DisplayMember = "TypeName";
+            RefreshPage();
         }
 
         private void cboTypes_SelectedIndexChanged(object sender, EventArgs e)
@@ -40,6 +48,7 @@ namespace CampAssist
             List<AccommodationUnit> accommodationUnits = accommodationUnitController.CboIndexChange(selectedType);
             cboAccommodations.DataSource = accommodationUnits;
             cboAccommodations.DisplayMember = "Name";
+            RefreshPage();
         }
 
         private void btnAddGuest_Click(object sender, EventArgs e)
@@ -56,8 +65,7 @@ namespace CampAssist
             {
                 GuestController guestController = new GuestController();
                 guestController.RemoveGuest(guest);
-                tempReservationGuests = guestController.GetGuestList();
-                dgvReservationGuestList.DataSource = tempReservationGuests;
+                RefreshPage();
                 MessageBox.Show("Gost uspješno obrisan!");
             }
             else
@@ -74,6 +82,21 @@ namespace CampAssist
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            RefreshPage();
+        }
+
+        private void btnAddReservation_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtpStartDate_ValueChanged(object sender, EventArgs e)
+        {
+            RefreshPage();
+        }
+
+        private void dtpEndDate_ValueChanged(object sender, EventArgs e)
         {
             RefreshPage();
         }

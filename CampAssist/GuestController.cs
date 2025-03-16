@@ -85,5 +85,16 @@ namespace CampAssist
                 return guest;
             }
         }
+
+        public int CalculateAge(Guest selectedGuest)
+        {
+            int ageInYears;
+            DateTime currentDate = DateTime.Now;
+            DateTime birthDate = (DateTime)selectedGuest.BirthDate;
+            TimeSpan difference = currentDate - birthDate;
+            ageInYears = (int)(difference.TotalDays / 365.25);
+            
+            return ageInYears;
+        }
     }
 }
