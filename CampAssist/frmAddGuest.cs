@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CampAssist
 {
-    public partial class AddGuest: Form
+    public partial class frmAddGuest: Form
     {
-        public AddGuest()
+        public frmAddGuest()
         {
             InitializeComponent();
         }
@@ -25,15 +25,16 @@ namespace CampAssist
             int OIB = (int)numOIB.Value;
 
             GuestController guestController = new GuestController();
-            if(guestController.AddGuest(name, surname, birthDate, OIB))
+            if(guestController.AddGuest(name,surname, birthDate, OIB))
             {
-                MessageBox.Show("Novi gost je uspješno dodan");
                 Close();
+                MessageBox.Show("Gost uspješno dodan!");
+
             }
             else
             {
-                MessageBox.Show("Gost već postoji");
                 Close();
+                MessageBox.Show("Gost već postoji!");
             }
         }
     }

@@ -30,10 +30,10 @@ namespace CampAssist
         public Nullable<bool> OldGuest { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AccommodationUnitGuest> AccommodationUnitGuests { get; set; }
+        public ICollection<AccommodationUnitGuest> AccommodationUnitGuests { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ReservationDate> ReservationDates { get; set; }
+        public ICollection<ReservationDate> ReservationDates { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ReservationGuest> ReservationGuests { get; set; }
+        public ICollection<ReservationGuest> ReservationGuests { get; set; }
     }
 }

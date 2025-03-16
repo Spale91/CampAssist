@@ -41,6 +41,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnRefresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReservationGuestList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,6 +101,7 @@
             this.btnPickOldGuest.TabIndex = 6;
             this.btnPickOldGuest.Text = "Odaberi starog gosta";
             this.btnPickOldGuest.UseVisualStyleBackColor = true;
+            this.btnPickOldGuest.Click += new System.EventHandler(this.btnPickOldGuest_Click);
             // 
             // btnAddGuest
             // 
@@ -109,6 +111,7 @@
             this.btnAddGuest.TabIndex = 7;
             this.btnAddGuest.Text = "Dodaj gosta";
             this.btnAddGuest.UseVisualStyleBackColor = true;
+            this.btnAddGuest.Click += new System.EventHandler(this.btnAddGuest_Click);
             // 
             // btnDeleteGuest
             // 
@@ -118,6 +121,7 @@
             this.btnDeleteGuest.TabIndex = 8;
             this.btnDeleteGuest.Text = "Obriši gosta";
             this.btnDeleteGuest.UseVisualStyleBackColor = true;
+            this.btnDeleteGuest.Click += new System.EventHandler(this.btnDeleteGuest_Click);
             // 
             // label1
             // 
@@ -155,11 +159,22 @@
             this.label4.TabIndex = 12;
             this.label4.Text = "Početak rezervacije";
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(512, 14);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(150, 36);
+            this.btnRefresh.TabIndex = 13;
+            this.btnRefresh.Text = "Osvježi";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // frmNewReservation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -197,5 +212,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }
