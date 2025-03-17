@@ -184,5 +184,45 @@ namespace CampAssist
                 return true;
             }
         }
+
+        public float GetAverageGuestNumber()
+        {
+            float totalGuests = 0;
+            float totalReservations = 0;
+            float averageGuestNumber = 0;
+
+            using(CampAssistDBEntities db = new CampAssistDBEntities())
+            {
+                List<Reservation> reservations = db.Reservations.ToList<Reservation>();
+                foreach (Reservation reservation in reservations)
+                {
+                    totalGuests += reservation.ReservationGuests.Count();
+                    totalReservations += 1;
+                }
+            }
+            averageGuestNumber = (float)(totalGuests / totalReservations);
+            return averageGuestNumber;
+        }
+
+        public float GetYearlyIncome()
+        {
+            DateTime dateTime = DateTime.Now;
+            int currentYear = dateTime.Year;
+            DateTime yearBegin = new DateTime(currentYear, 1, 1);
+            DateTime yearEnd = new DateTime(currentYear, 12, 31);
+
+            float yearlyIncome = 0;
+
+            using(CampAssistDBEntities db = new CampAssistDBEntities())
+            {
+                List<Reservation> yearlyReservations = db.Reservations.Where(r => r.StartDate >= yearBegin || r.StartDate <= yearEnd).ToList<Reservation>();
+                
+                foreach(Reservation yearlyReservation in yearlyReservations)
+                {
+                    yearlyIncome += (float)yearlyReservation.Price;
+                }
+                return yearlyIncome;
+            }
+        }
     }
 }

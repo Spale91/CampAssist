@@ -48,6 +48,7 @@ namespace CampAssist
             ReservationController reservationController = new ReservationController();
             float totalPrice = reservationController.CalculatePrice(type, startDate, endDate, tempReservationGuests);
             numTotalPrice.Value = (decimal)totalPrice;
+            numTotalPrice.Enabled = false;
         }
 
         private void frmNewReservation_Load(object sender, EventArgs e)

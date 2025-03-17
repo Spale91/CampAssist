@@ -27,3 +27,4 @@ C:\Users\Patrick\source\repos\CampAssist\CampAssist\obj\Debug\CampAssist.frmAddG
 C:\Users\Patrick\source\repos\CampAssist\CampAssist\obj\Debug\CampAssist.frmGuestList.resources
 C:\Users\Patrick\source\repos\CampAssist\CampAssist\obj\Debug\CampAssist.frmAccommodationUnitGuestList.resources
 C:\Users\Patrick\source\repos\CampAssist\CampAssist\obj\Debug\CampAssist.frmEmployeeList.resources
+C:\Users\Patrick\source\repos\CampAssist\CampAssist\obj\Debug\CampAssist.frmStats.resources

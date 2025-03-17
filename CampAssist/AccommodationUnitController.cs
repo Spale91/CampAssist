@@ -129,5 +129,47 @@ namespace CampAssist
                     return availableUnits;
                 }
         }
+
+        public float GetUnitsFillThroughYear()
+        {
+            float unitsFillPercentageThroughYear = 0;
+            float totalCapacity = 0;
+
+            DateTime dateTime = DateTime.Now;
+            int currentYear = dateTime.Year;
+
+            DateTime yearStart = new DateTime(currentYear, 1, 1);
+            DateTime currentDate = DateTime.Now.Date;
+            TimeSpan daysInCurrentYear = currentDate - yearStart;
+            float totalDaysInCurrentYear = (int)daysInCurrentYear.TotalDays;
+
+            float totalDaysFilled = 0;
+
+            using (CampAssistDBEntities db = new CampAssistDBEntities())
+            {
+                List<AccommodationUnit> accommodationUnits = db.AccommodationUnits.ToList<AccommodationUnit>();
+                float totalAccommodationUnits = accommodationUnits.Count();
+
+                totalCapacity = (float)(totalAccommodationUnits * totalDaysInCurrentYear);
+
+                foreach (AccommodationUnit accommodationUnit in accommodationUnits)
+                {
+                    List<ReservationDate> reservationDates = db.ReservationDates
+                                                            .Where(rd => rd.AccommodationUnitID == accommodationUnit.AccommodationUnitID)
+                                                            .ToList<ReservationDate>();
+
+                    foreach (ReservationDate reservationDate in reservationDates)
+                    {
+                        DateTime startDate = (DateTime)reservationDate.StartDate;
+                        DateTime endDate = (DateTime)reservationDate.EndDate;
+
+                        TimeSpan reservationDuration = endDate - startDate;
+                        totalDaysFilled += (float)reservationDuration.TotalDays;
+                    }
+                }
+            }
+            unitsFillPercentageThroughYear = (float)((totalDaysFilled / totalCapacity)*100);
+            return unitsFillPercentageThroughYear;
+        }
     }
 }

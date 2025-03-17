@@ -58,5 +58,12 @@ namespace CampAssist
         {
             lblUser.Text = user.FullName();
         }
+
+        private void btnStats_Click(object sender, EventArgs e)
+        {
+            Hide();
+            frmStats frmStats = new frmStats();
+            frmStats.ShowDialog();
+        }
     }
 }

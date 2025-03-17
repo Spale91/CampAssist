@@ -34,6 +34,7 @@
             this.btnGuestList = new System.Windows.Forms.Button();
             this.btnEmployees = new System.Windows.Forms.Button();
             this.lblUser = new System.Windows.Forms.Label();
+            this.btnStats = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnTypeList
@@ -95,11 +96,22 @@
             this.lblUser.TabIndex = 5;
             this.lblUser.Text = "label1";
             // 
+            // btnStats
+            // 
+            this.btnStats.Location = new System.Drawing.Point(552, 126);
+            this.btnStats.Name = "btnStats";
+            this.btnStats.Size = new System.Drawing.Size(145, 51);
+            this.btnStats.TabIndex = 6;
+            this.btnStats.Text = "Statistika";
+            this.btnStats.UseVisualStyleBackColor = true;
+            this.btnStats.Click += new System.EventHandler(this.btnStats_Click);
+            // 
             // frmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnStats);
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.btnEmployees);
             this.Controls.Add(this.btnGuestList);
@@ -122,5 +134,6 @@
         private System.Windows.Forms.Button btnGuestList;
         private System.Windows.Forms.Button btnEmployees;
         private System.Windows.Forms.Label lblUser;
+        private System.Windows.Forms.Button btnStats;
     }
 }
