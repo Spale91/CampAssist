@@ -29,7 +29,8 @@ namespace CampAssist
                 if(loginController.checkAdmin(username))
                 {
                     Hide();
-                    frmAdmin frmAdmin = new frmAdmin();
+                    User user = loginController.GetUser(username);
+                    frmAdmin frmAdmin = new frmAdmin(user);
                     frmAdmin.ShowDialog();
                 }
                 else

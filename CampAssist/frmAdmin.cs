@@ -12,9 +12,11 @@ namespace CampAssist
 {
     public partial class frmAdmin: Form
     {
-        public frmAdmin()
+        User user;
+        public frmAdmin(User user)
         {
             InitializeComponent();
+            this.user = user;
         }
 
         private void btnTypeList_Click(object sender, EventArgs e)
@@ -36,6 +38,25 @@ namespace CampAssist
             Hide();
             frmNewReservation frmNewReservation = new frmNewReservation();
             frmNewReservation.ShowDialog();
+        }
+
+        private void btnGuestList_Click(object sender, EventArgs e)
+        {
+            Hide();
+            frmAccommodationUnitGuestList frmAccommodationUnitGuestList = new frmAccommodationUnitGuestList();
+            frmAccommodationUnitGuestList.ShowDialog();
+        }
+
+        private void btnEmployees_Click(object sender, EventArgs e)
+        {
+            Hide();
+            frmEmployeeList frmEmployeeList = new frmEmployeeList();
+            frmEmployeeList.ShowDialog();
+        }
+
+        private void frmAdmin_Load(object sender, EventArgs e)
+        {
+            lblUser.Text = user.FullName();
         }
     }
 }

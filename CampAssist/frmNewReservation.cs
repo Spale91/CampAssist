@@ -27,6 +27,24 @@ namespace CampAssist
             Type type = cboTypes.SelectedItem as Type;
             DateTime startDate = dtpStartDate.Value;
             DateTime endDate = dtpEndDate.Value;
+
+            if(!guestController.checkCapacity(type, tempReservationGuests))
+            {
+                MessageBox.Show("Kapacitet smještajne jedinice je popunjen");
+                btnAddGuest.Enabled = false;
+                btnPickOldGuest.Enabled = false;
+            }
+            else
+            {
+                btnAddGuest.Enabled = true;
+                btnPickOldGuest.Enabled = true;
+            }
+
+            AccommodationUnitController accommodationUnitController = new AccommodationUnitController();
+            List<AccommodationUnit> accommodationUnits = accommodationUnitController.CboIndexChangeOnReservation(type, startDate, endDate);
+            cboAccommodations.DataSource = accommodationUnits;
+            cboAccommodations.DisplayMember = "Name";
+
             ReservationController reservationController = new ReservationController();
             float totalPrice = reservationController.CalculatePrice(type, startDate, endDate, tempReservationGuests);
             numTotalPrice.Value = (decimal)totalPrice;
@@ -43,11 +61,6 @@ namespace CampAssist
 
         private void cboTypes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Type selectedType = cboTypes.SelectedItem as Type;
-            AccommodationUnitController accommodationUnitController = new AccommodationUnitController();
-            List<AccommodationUnit> accommodationUnits = accommodationUnitController.CboIndexChange(selectedType);
-            cboAccommodations.DataSource = accommodationUnits;
-            cboAccommodations.DisplayMember = "Name";
             RefreshPage();
         }
 
@@ -88,16 +101,49 @@ namespace CampAssist
 
         private void btnAddReservation_Click(object sender, EventArgs e)
         {
+            Type type = cboTypes.SelectedItem as Type;
+            AccommodationUnit unit = cboAccommodations.SelectedItem as AccommodationUnit;
+            float price = (float)numTotalPrice.Value;
+            DateTime startDate = dtpStartDate.Value;
+            DateTime endDate = dtpEndDate.Value;
 
+            ReservationController reservationController = new ReservationController();
+            Reservation reservation = reservationController.AddReservation(type, unit, price, startDate, endDate);
+            reservationController.AddReservationDate(reservation, unit, tempReservationGuests);
+            reservationController.AddAccommodationUnitGuest(unit, tempReservationGuests);
+            reservationController.AddReservationGuest(reservation, tempReservationGuests);
+            reservationController.changeOldGuest(reservation);
+
+            Close();
         }
 
         private void dtpStartDate_ValueChanged(object sender, EventArgs e)
         {
+            DateTime startDate = dtpStartDate.Value;
+            DateTime endDate = dtpEndDate.Value;
+
+            ReservationController reservationController = new ReservationController();
+            if (!reservationController.CheckDates(startDate, endDate))
+            {
+                dtpEndDate.Value = startDate;
+                MessageBox.Show("Završni datum ne može biti prije početnog datuma");
+            }
+
             RefreshPage();
         }
 
         private void dtpEndDate_ValueChanged(object sender, EventArgs e)
         {
+            DateTime startDate = dtpStartDate.Value;
+            DateTime endDate = dtpEndDate.Value;
+
+            ReservationController reservationController = new ReservationController();
+            if (!reservationController.CheckDates(startDate, endDate))
+            {
+                dtpEndDate.Value = startDate;
+                MessageBox.Show("Završni datum ne može biti prije početnog datuma");
+            }
+
             RefreshPage();
         }
     }

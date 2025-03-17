@@ -34,9 +34,9 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(218, 84);
+            this.btnLogin.Location = new System.Drawing.Point(82, 53);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(281, 94);
+            this.btnLogin.Size = new System.Drawing.Size(133, 48);
             this.btnLogin.TabIndex = 0;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -44,9 +44,9 @@
             // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(218, 231);
+            this.btnRegister.Location = new System.Drawing.Point(82, 128);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(281, 94);
+            this.btnRegister.Size = new System.Drawing.Size(133, 50);
             this.btnRegister.TabIndex = 1;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = true;
@@ -56,7 +56,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(300, 236);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.btnLogin);
             this.Name = "FrmStart";

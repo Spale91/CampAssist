@@ -19,8 +19,10 @@ namespace CampAssist
 
         public void ShowAccommodationUnits()
         {
+            Type type = cboTypes.SelectedItem as Type;
+
             AccommodationUnitController accommodationUnitController = new AccommodationUnitController();
-            List<AccommodationUnit> accommodationUnits = accommodationUnitController.GetAccommodationUnits();
+            List<AccommodationUnit> accommodationUnits = accommodationUnitController.GetAccommodationUnits(type);
             dgvAccommodationUnitList.DataSource = accommodationUnits;
         }
 
@@ -58,6 +60,8 @@ namespace CampAssist
 
         private void btnReset_Click(object sender, EventArgs e)
         {
+            radioBtnFree.Checked = false;
+            radioBtnReserved.Checked = false;
             ShowAccommodationUnits();
         }
 
@@ -84,6 +88,32 @@ namespace CampAssist
             AccommodationUnitController accommodationUnitController = new AccommodationUnitController();
             List<AccommodationUnit> accommodationUnits = accommodationUnitController.CboIndexChange(type);
             dgvAccommodationUnitList.DataSource = accommodationUnits;
+        }
+
+        private void radioBtnReserved_CheckedChanged(object sender, EventArgs e)
+        {
+            Type type = cboTypes.SelectedItem as Type;
+
+            if(radioBtnReserved.Checked)
+            {
+                radioBtnFree.Checked = false;
+                AccommodationUnitController accommodationUnitController = new AccommodationUnitController();
+                List<AccommodationUnit> accommodationUnits = accommodationUnitController.GetReservedAccommodationUnits(type);
+                dgvAccommodationUnitList.DataSource = accommodationUnits;
+            }
+        }
+
+        private void radioBtnFree_CheckedChanged(object sender, EventArgs e)
+        {
+            Type type = cboTypes.SelectedItem as Type;
+
+            if (radioBtnFree.Checked)
+            {
+                radioBtnReserved.Checked = false;
+                AccommodationUnitController accommodationUnitController = new AccommodationUnitController();
+                List<AccommodationUnit> accommodationUnits = accommodationUnitController.GetFreeAccommodationUnits(type);
+                dgvAccommodationUnitList.DataSource = accommodationUnits;
+            }
         }
     }
 }

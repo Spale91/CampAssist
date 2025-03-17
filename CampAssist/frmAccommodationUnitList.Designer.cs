@@ -35,6 +35,8 @@
             this.dgvAccommodationUnitList = new System.Windows.Forms.DataGridView();
             this.cboTypes = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.radioBtnReserved = new System.Windows.Forms.RadioButton();
+            this.radioBtnFree = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccommodationUnitList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -104,11 +106,37 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "Tip smještaja";
             // 
+            // radioBtnReserved
+            // 
+            this.radioBtnReserved.AutoSize = true;
+            this.radioBtnReserved.Location = new System.Drawing.Point(428, 35);
+            this.radioBtnReserved.Name = "radioBtnReserved";
+            this.radioBtnReserved.Size = new System.Drawing.Size(82, 17);
+            this.radioBtnReserved.TabIndex = 14;
+            this.radioBtnReserved.TabStop = true;
+            this.radioBtnReserved.Text = "Rezervirano";
+            this.radioBtnReserved.UseVisualStyleBackColor = true;
+            this.radioBtnReserved.CheckedChanged += new System.EventHandler(this.radioBtnReserved_CheckedChanged);
+            // 
+            // radioBtnFree
+            // 
+            this.radioBtnFree.AutoSize = true;
+            this.radioBtnFree.Location = new System.Drawing.Point(518, 35);
+            this.radioBtnFree.Name = "radioBtnFree";
+            this.radioBtnFree.Size = new System.Drawing.Size(70, 17);
+            this.radioBtnFree.TabIndex = 15;
+            this.radioBtnFree.TabStop = true;
+            this.radioBtnFree.Text = "Slobodno";
+            this.radioBtnFree.UseVisualStyleBackColor = true;
+            this.radioBtnFree.CheckedChanged += new System.EventHandler(this.radioBtnFree_CheckedChanged);
+            // 
             // frmAccommodationUnitList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.radioBtnFree);
+            this.Controls.Add(this.radioBtnReserved);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cboTypes);
             this.Controls.Add(this.btnReset);
@@ -133,5 +161,7 @@
         private System.Windows.Forms.DataGridView dgvAccommodationUnitList;
         private System.Windows.Forms.ComboBox cboTypes;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.RadioButton radioBtnReserved;
+        private System.Windows.Forms.RadioButton radioBtnFree;
     }
 }

@@ -65,6 +65,7 @@
     <Compile Include="AccommodationUnitGuest.cs">
       <DependentUpon>DBEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="AccommodationUnitGuestDTO.cs" />
     <Compile Include="DBEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -79,6 +80,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DBEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="frmAccommodationUnitGuestList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAccommodationUnitGuestList.Designer.cs">
+      <DependentUpon>frmAccommodationUnitGuestList.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAddGuest.cs">
       <SubType>Form</SubType>
@@ -121,6 +128,12 @@
     </Compile>
     <Compile Include="frmEditType.Designer.cs">
       <DependentUpon>frmEditType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEmployeeList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEmployeeList.Designer.cs">
+      <DependentUpon>frmEmployeeList.cs</DependentUpon>
     </Compile>
     <Compile Include="frmGuestList.cs">
       <SubType>Form</SubType>
@@ -196,6 +209,10 @@
     <Compile Include="User.cs">
       <DependentUpon>DBEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="UserController.cs" />
+    <EmbeddedResource Include="frmAccommodationUnitGuestList.resx">
+      <DependentUpon>frmAccommodationUnitGuestList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAddGuest.resx">
       <DependentUpon>frmAddGuest.cs</DependentUpon>
     </EmbeddedResource>
@@ -216,6 +233,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditType.resx">
       <DependentUpon>frmEditType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEmployeeList.resx">
+      <DependentUpon>frmEmployeeList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGuestList.resx">
       <DependentUpon>frmGuestList.cs</DependentUpon>

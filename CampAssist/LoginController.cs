@@ -42,5 +42,14 @@ namespace CampAssist
                 }
             }
         }
+
+        public User GetUser(string username)
+        {
+            using(CampAssistDBEntities db = new CampAssistDBEntities())
+            {
+                User user = db.Users.FirstOrDefault(u => u.Username == username);
+                return user;
+            }
+        }
     }
 }

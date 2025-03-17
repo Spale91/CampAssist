@@ -42,10 +42,10 @@ namespace CampAssist
             {
                 GuestID = selectedGuest.GuestID,
                 Name = selectedGuest.Name,
-                Surname= selectedGuest.Surname,
+                Surname = selectedGuest.Surname,
                 BirthDate = selectedGuest.BirthDate,
                 OIB = selectedGuest.OIB,
-                OldGuest = selectedGuest.OldGuest
+                OldGuest = selectedGuest.OldGuest,
             });
         }
 
@@ -72,7 +72,7 @@ namespace CampAssist
         {
             using(CampAssistDBEntities db = new CampAssistDBEntities())
             {
-                List<Guest> oldGuests = db.Guests.ToList<Guest>();
+                List<Guest> oldGuests = db.Guests.Where(g => g.OldGuest == true).ToList<Guest>();
                 return oldGuests;
             }
         }
@@ -95,6 +95,34 @@ namespace CampAssist
             ageInYears = (int)(difference.TotalDays / 365.25);
             
             return ageInYears;
+        }
+
+        public bool checkCapacity(Type type, List<Guest> guests)
+        {
+            if (guests.Count >= type.Capacity)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        public List<AccommodationUnitGuestDTO> getAccommodationUnitGuests()
+        {
+            using (CampAssistDBEntities db = new CampAssistDBEntities())
+            {
+                List<AccommodationUnitGuestDTO> guestList = db.AccommodationUnitGuests
+                    .Select(aug => new AccommodationUnitGuestDTO
+                    {
+                        GuestName = aug.Guest.Name,
+                        UnitName = aug.AccommodationUnit.Name
+                    })
+                    .ToList<AccommodationUnitGuestDTO>();
+
+                return guestList;
+            }
         }
     }
 }

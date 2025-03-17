@@ -22,5 +22,10 @@ namespace CampAssist
         public Nullable<int> RoleID { get; set; }
     
         public virtual Role Role { get; set; }
+
+        public string FullName()
+        {
+            return Name + " " + Surname;
+        }
     }
 }
